@@ -22,12 +22,18 @@ sap.ui.define([
 			this.Experince = 1;
 			this.Projects = 0;
 			this.skill = 0;
-			this.lvdata = "";
+			this.skdata = [];
+			this.eddata = [];
 		},
 		onEduClick: function(){
 			var type = this.byId("eduType").getValue();
+			this.byId("eduType").setValue("");
 			if(type === ""){
-				alert("please enter Skill Name");
+				alert("please enter Course Name");
+				return;
+			}
+			if(this.eddata.includes(type)){
+				alert("Course Already Exists");
 				return;
 			}
 			var id = "edu"  + this.eduCount;
@@ -93,8 +99,13 @@ sap.ui.define([
 		},
 		onSkillClick: function(){
 			var type = this.byId("skillName").getValue();
+			this.byId("skillName").setValue("");
 			if(type === ""){
 				alert("please enter Skill Name");
+				return;
+			}
+			if(this.skdata.includes(type)){
+				alert("Skill Already Exists");
 				return;
 			}
 			ResumeData.skills[type] = 0;
