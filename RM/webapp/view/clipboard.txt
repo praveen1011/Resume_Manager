@@ -1,0 +1,133 @@
+<mvc:View controllerName="ns.RM.controller.resumeForm" 
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Page id="page" title="Resume">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormChange480_Trial"
+					editable="true">
+					<f:title>
+						<core:Title text="Address" />
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout
+							adjustLabelSpan="false"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1"
+							emptySpanXL="0"
+							emptySpanL="0"
+							emptySpanM="0"
+							singleContainerFullSize="true" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer title="Personal Information">
+							<f:formElements>
+								<f:FormElement label="Name">
+									<f:fields>
+										<Input value="{name}" id="name"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="address">
+									<f:fields>
+										<TextArea value="{address}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Email">
+									<f:fields>
+										<Input value="{email}" type="Url"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="GitHub">
+									<f:fields>
+										<Input value="{github}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="LinkedIn">
+									<f:fields>
+										<Input value="{lmail}" type="Email"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Phone Number">
+									<f:fields>
+										<Input value="{phno}" type="Tel"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Career Objective">
+									<f:fields>
+										<Input value="{cobj}"/>
+									</f:fields>
+								</f:FormElement>
+								<!--<f:FormElement label="Country">-->
+								<!--	<f:fields>-->
+								<!--		<Select id="country" selectedKey="{Country}">-->
+								<!--			<items>-->
+								<!--				<core:Item text="England" key="England"/>-->
+								<!--				<core:Item text="Germany" key="Germany"/>-->
+								<!--				<core:Item text="USA" key="USA"/>-->
+								<!--			</items>-->
+								<!--		</Select>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer id = "edu">
+							<f:toolbar>
+								<Toolbar>
+									<Title id="Title2" text="Education"/>
+									<ToolbarSpacer />
+									<Input value="" id="eduType" placeholder="Enter stream" width="30%"/>
+									<Button icon="sap-icon://add" text="Add" press="onEduClick"/> 
+								</Toolbar>
+							</f:toolbar>
+							<f:formElements>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer title="Experience">
+							<f:formElements id = "exp">
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer title="Projects">
+							<f:formElements id = "proj">
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer title="Skills">
+							<f:formElements id = "skill">
+							</f:formElements>
+						</f:FormContainer>
+						
+						<f:FormContainer title="Other">
+							<f:formElements>
+								<f:FormElement label="Rating">
+									<f:fields>
+										<RatingIndicator value="{Rating}" />
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Disposable">
+									<f:fields>
+										<ProgressIndicator percentValue="{Disposable}" />
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>
+
+							<f:toolbar>
+								<Toolbar>
+									<Title id="Title2" text="Education"/>
+									<ToolbarSpacer />
+									<Input value="" id="eduType" placeholder="Enter stream" width="30%"/>
+									<Button icon="sap-icon://add" text="Add" press="onEduClick"/> 
+								</Toolbar>
+							</f:toolbar>
+
+
+
