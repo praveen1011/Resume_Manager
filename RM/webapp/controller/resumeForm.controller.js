@@ -16,14 +16,15 @@ sap.ui.define([
 						skills : {} , 
 						projects : {} , 
 						experience : {} };
+	var skdata = [],
+		eddata = [];
 	return Controller.extend("ns.RM.controller.resumeForm", {
 		onInit: function () {
 			this.eduCount = 0;
 			this.Experince = 1;
 			this.Projects = 0;
 			this.skill = 0;
-			this.skdata = [];
-			this.eddata = [];
+			
 		},
 		onEduClick: function(){
 			var type = this.byId("eduType").getValue();
@@ -32,10 +33,11 @@ sap.ui.define([
 				alert("please enter Course Name");
 				return;
 			}
-			if(this.eddata.includes(type)){
+			if(eddata.includes(type)){
 				alert("Course Already Exists");
 				return;
 			}
+			eddata.push(type);
 			var id = "edu"  + this.eduCount;
 			this.eduCount = this.eduCount + 1;
 			ResumeData.education[id] = { relieved : "" , joined : "" , cName : "" , Stream : type , score : ""};
@@ -99,15 +101,16 @@ sap.ui.define([
 		},
 		onSkillClick: function(){
 			var type = this.byId("skillName").getValue();
-			this.byId("skillName").setValue("");
 			if(type === ""){
 				alert("please enter Skill Name");
 				return;
 			}
-			if(this.skdata.includes(type)){
+			if(skdata.includes(type)){
 				alert("Skill Already Exists");
 				return;
 			}
+			skdata.push(type);
+			this.byId("skillName").setValue("");
 			ResumeData.skills[type] = 0;
 			var formElement = new sap.ui.layout.form.FormElement({label:type});
 			var btn = new sap.m.Button({ type : sap.m.ButtonType.Reject, icon : "sap-icon://delete"});
@@ -159,7 +162,9 @@ sap.ui.define([
 			}
 			for(key in ResumeData.skills)
 			{
-				data.skills.push({key : ResumeData.skills[key]});
+				var sdata = {};
+				sdata[key] = ResumeData.skills[key];
+				data.skills.push(sdata);
 			}
 			for(key in ResumeData.projects)
 			{
@@ -191,9 +196,15 @@ sap.ui.define([
 			console.log(ResumeData);
 		},
 		onDelete: function(){
+			if(this.parentKey === "education"){
+				eddata.pop(ResumeData[this.parentKey][this.key].Stream);
+			}
+			if(this.parentKey === "skills"){
+				skdata.pop(this.key);
+			}
 			delete ResumeData[this.parentKey][this.key];
 			this.obj.destroy();
-			console.log(ResumeData);
+			console.log(ResumeData,eddata,skdata);
 			console.log("Boom!!!!");
 		}
 	});
