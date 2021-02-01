@@ -31,6 +31,11 @@
 										<Input value="{name}" id="name" change="onPersonalChange"/>
 									</f:fields>
 								</f:FormElement>
+								<f:FormElement label="Role">
+									<f:fields>
+										<Input value="{role}" id="role" change="onPersonalChange"/>
+									</f:fields>
+								</f:FormElement>
 								<f:FormElement label="address">
 									<f:fields>
 										<TextArea value="{address}" id="address" change="onPersonalChange"/>
