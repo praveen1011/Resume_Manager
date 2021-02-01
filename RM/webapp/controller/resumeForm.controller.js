@@ -150,12 +150,13 @@ sap.ui.define([
 			this.byId("Projects").addFormContainer(formContainer);
 		},
 		onClick: function(oEvent){
-			var data = {personal : ResumeData.personal, 
+			var data = {personal : {}, 
 						education : [] ,
 						skills : [] , 
 						projects : [] , 
 						experience : [] },
 			key = "";
+			data["personal"] = ResumeData.personal;
 			for(key in ResumeData.education)
 			{
 				data.education.push(ResumeData.education[key]);
